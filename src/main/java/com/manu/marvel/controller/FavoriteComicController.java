@@ -27,4 +27,13 @@ public class FavoriteComicController {
     public ResponseEntity<List<FavoriteComic>> getAllFavorites() {
         return ResponseEntity.ok(service.findAll());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteFavorite(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+
 }

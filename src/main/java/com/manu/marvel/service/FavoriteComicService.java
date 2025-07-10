@@ -22,4 +22,12 @@ public class FavoriteComicService {
     public List<FavoriteComic> findAll() {
         return repository.findAll();
     }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+
+
+
 }
