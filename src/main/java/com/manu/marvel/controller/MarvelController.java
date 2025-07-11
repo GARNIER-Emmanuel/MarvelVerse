@@ -1,8 +1,8 @@
 package com.manu.marvel.controller;
 
-import com.manu.marvel.model.CharacterDto;
-import com.manu.marvel.model.ComicDto;
-import com.manu.marvel.model.MarvelResponse;
+import com.manu.marvel.dto.CharacterDto;
+import com.manu.marvel.dto.ComicDto;
+import com.manu.marvel.response.MarvelResponse;
 import com.manu.marvel.service.MarvelApiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

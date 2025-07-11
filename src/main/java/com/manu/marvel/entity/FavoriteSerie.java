@@ -1,4 +1,4 @@
-package com.manu.marvel.model;
+package com.manu.marvel.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

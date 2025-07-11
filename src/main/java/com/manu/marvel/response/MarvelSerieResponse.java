@@ -1,4 +1,4 @@
-package com.manu.marvel.model;
+package com.manu.marvel.response;
 
 import java.util.List;
 

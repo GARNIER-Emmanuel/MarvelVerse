@@ -1,6 +1,6 @@
 package com.manu.marvel.controller;
 
-import com.manu.marvel.model.FavoriteSerie;
+import com.manu.marvel.entity.FavoriteSerie;
 import com.manu.marvel.service.FavoriteSerieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

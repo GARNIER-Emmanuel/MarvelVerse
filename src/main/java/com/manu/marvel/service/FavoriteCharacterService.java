@@ -1,6 +1,6 @@
 package com.manu.marvel.service;
 
-import com.manu.marvel.model.FavoriteCharacter;
+import com.manu.marvel.entity.FavoriteCharacter;
 import com.manu.marvel.repository.FavoriteCharacterRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;

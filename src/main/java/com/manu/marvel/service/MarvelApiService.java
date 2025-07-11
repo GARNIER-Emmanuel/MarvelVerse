@@ -1,10 +1,11 @@
 package com.manu.marvel.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.manu.marvel.model.CharacterDto;
-import com.manu.marvel.model.ComicDto;
-import com.manu.marvel.model.MarvelComicsResponse;
-import com.manu.marvel.model.MarvelResponse;
+import com.manu.marvel.dto.CharacterDto;
+import com.manu.marvel.dto.ComicDto;
+import com.manu.marvel.response.MarvelComicsResponse;
+import com.manu.marvel.response.MarvelResponse;
+
 import org.springframework.stereotype.Service;
 
 import java.net.URI;

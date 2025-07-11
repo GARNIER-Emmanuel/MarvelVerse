@@ -1,6 +1,6 @@
 package com.manu.marvel.controller;
 
-import com.manu.marvel.model.FavoriteComic;
+import com.manu.marvel.entity.FavoriteComic;
 import com.manu.marvel.service.FavoriteComicService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

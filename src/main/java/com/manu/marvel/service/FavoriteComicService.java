@@ -1,6 +1,6 @@
 package com.manu.marvel.service;
 
-import com.manu.marvel.model.FavoriteComic;
+import com.manu.marvel.entity.FavoriteComic;
 import com.manu.marvel.repository.FavoriteComicRepository;
 import org.springframework.stereotype.Service;
 

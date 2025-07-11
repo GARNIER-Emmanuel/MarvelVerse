@@ -1,6 +1,6 @@
 package com.manu.marvel.controller;
 
-import com.manu.marvel.model.FavoriteCharacter;
+import com.manu.marvel.entity.FavoriteCharacter;
 import com.manu.marvel.service.FavoriteCharacterService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

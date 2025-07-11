@@ -1,7 +1,8 @@
 package com.manu.marvel.repository;
 
-import com.manu.marvel.model.FavoriteSerie;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.manu.marvel.entity.FavoriteSerie;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.manu.marvel.model;
+package com.manu.marvel.dto;
 
 public class CharacterDto {
     private int id;
