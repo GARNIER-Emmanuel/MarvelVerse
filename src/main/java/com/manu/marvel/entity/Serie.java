@@ -1,4 +1,4 @@
-package com.manu.marvel.model;
+package com.manu.marvel.entity;
 
 public class Serie {
     private Long id;

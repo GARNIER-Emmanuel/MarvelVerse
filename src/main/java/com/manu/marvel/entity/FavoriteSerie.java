@@ -1,13 +1,13 @@
 package com.manu.marvel.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class FavoriteSerie {
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -50,4 +50,16 @@ public class FavoriteCharacterController {
         return ResponseEntity.ok(service.findAllPaged(pageable));
     }
 
+    @PostMapping("/characters/{characterId}")
+    public FavoriteCharacter addFavoriteCharacter(@PathVariable Long characterId,
+                                                  @RequestParam Long userId,
+                                                  @RequestBody FavoriteCharacter character) {
+        return service.addFavoriteCharacter(character, userId);
+    }
+
+    @GetMapping("/characters")
+    public List<FavoriteCharacter> getFavorites(@RequestParam Long userId) {
+        return service.getFavoritesByUser(userId);
+    }
+    
 }

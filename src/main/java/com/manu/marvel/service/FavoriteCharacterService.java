@@ -1,7 +1,10 @@
 package com.manu.marvel.service;
 
 import com.manu.marvel.entity.FavoriteCharacter;
+import com.manu.marvel.entity.User;
 import com.manu.marvel.repository.FavoriteCharacterRepository;
+import com.manu.marvel.repository.UserRepository;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +16,11 @@ import java.util.Optional;
 public class FavoriteCharacterService {
 
     private final FavoriteCharacterRepository repository;
-
-    public FavoriteCharacterService(FavoriteCharacterRepository repository) {
+    private final UserRepository userRepository;
+    
+    public FavoriteCharacterService(FavoriteCharacterRepository repository, UserRepository userRepository) {
         this.repository = repository;
+        this.userRepository = userRepository;
     }
 
     public List<FavoriteCharacter> findAll() {
@@ -42,4 +47,14 @@ public class FavoriteCharacterService {
         return repository.findAll(pageable);
     }
 
+    public FavoriteCharacter addFavoriteCharacter(FavoriteCharacter character, Long userId) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        character.setUser(user);
+        return repository.save(character);
+    }
+    public List<FavoriteCharacter> getFavoritesByUser(Long userId) {
+        return repository.findByUserId(userId);
+    }
+    
 }

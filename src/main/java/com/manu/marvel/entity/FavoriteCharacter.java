@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "favorite_characters")
 public class FavoriteCharacter {
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,6 +39,10 @@ public class FavoriteCharacter {
 
     public String getThumbnailUrl() { return thumbnailUrl; }
     public void setThumbnailUrl(String thumbnailUrl) { this.thumbnailUrl = thumbnailUrl; }
+
+    public void setUser(User user2) {
+        this.user = user2;
+    }
 
     // getters & setters
 }

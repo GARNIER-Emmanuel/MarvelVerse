@@ -12,6 +12,7 @@ public interface FavoriteCharacterRepository extends JpaRepository<FavoriteChara
     Optional<FavoriteCharacter> findByName(String name);
 
     List<FavoriteCharacter> findByNameContainingIgnoreCase(String name);
+    List<FavoriteCharacter> findByUserId(Long userId);
 
 }
 

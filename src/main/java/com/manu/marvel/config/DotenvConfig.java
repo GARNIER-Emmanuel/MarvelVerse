@@ -23,4 +23,7 @@ public class DotenvConfig {
         System.setProperty("DB_USER", Objects.requireNonNull(dotenv.get("DB_USER")));
         System.setProperty("DB_PASSWORD", Objects.requireNonNull(dotenv.get("DB_PASSWORD")));
     }
+
+
+
 }

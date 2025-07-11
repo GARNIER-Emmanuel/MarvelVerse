@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "favorite_comics")
 public class FavoriteComic {
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
