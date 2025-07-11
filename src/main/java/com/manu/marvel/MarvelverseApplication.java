@@ -10,7 +10,6 @@ public class MarvelverseApplication {
 		SpringApplication.run(MarvelverseApplication.class, args);
 	}
 
-	int test;
 
 
 }
