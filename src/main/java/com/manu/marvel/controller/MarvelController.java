@@ -8,9 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import java.util.Arrays;
 
 @RestController
 @RequestMapping("/api/marvel")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class MarvelController {
 
     private final MarvelApiService marvelApiService;
@@ -63,5 +68,14 @@ public class MarvelController {
         return ResponseEntity.ok(results);
     }
 
-
+    @GetMapping("/comics")
+    @CrossOrigin(origins = "http://localhost:3000") // Spécifique à ton frontend
+    public ResponseEntity<List<ComicDto>> getAllComics(
+            @RequestParam(defaultValue = "10") int limit,
+            @RequestParam(defaultValue = "0") int offset
+    ) {
+        List<ComicDto> comics = marvelApiService.getAllComics(limit, offset);
+        return ResponseEntity.ok(comics);
+    }
+    
 }

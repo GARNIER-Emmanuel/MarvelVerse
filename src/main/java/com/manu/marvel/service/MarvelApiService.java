@@ -327,5 +327,42 @@ public class MarvelApiService {
         }
     }
 
+    public List<ComicDto> getAllComics(int limit, int offset) {
+        List<ComicDto> comicsList = new ArrayList<>();
+
+        try {
+            String timestamp = String.valueOf(System.currentTimeMillis());
+            String hash = generateHash(timestamp, privateKey, publicKey);
+            String requestUrl = baseUrl + "/comics?limit=" + limit + "&offset=" + offset
+                    + "&ts=" + timestamp + "&apikey=" + publicKey + "&hash=" + hash;
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(requestUrl))
+                    .GET()
+                    .build();
+
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            ObjectMapper mapper = new ObjectMapper();
+            MarvelComicsResponse comicsResponse = mapper.readValue(response.body(), MarvelComicsResponse.class);
+
+            if (comicsResponse.getData() != null && comicsResponse.getData().getResults() != null) {
+                for (MarvelComicsResponse.ComicResult comic : comicsResponse.getData().getResults()) {
+                    String thumbnailUrl = comic.getThumbnail().getPath() + "." + comic.getThumbnail().getExtension();
+                    comicsList.add(new ComicDto(
+                            comic.getTitle(),
+                            comic.getDescription(),
+                            thumbnailUrl
+                    ));
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return comicsList;
+    }
 
 }
